@@ -54,7 +54,7 @@ body {
     content: '';
     height: 100vh;
     width: 100%;
-    background-image: url("../images/avatar.jpg");
+    background-image: url("../images/sunflowers.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -148,6 +148,121 @@ hr {
     border: 1.5px solid #c0c0c0;
 }
 
+/* Work Experience */
+
+.work-experience h4 {
+    margin: 2px;
+}
+
+.work-experience .date {
+    color: #676767;
+    margin-top: 5px;
+}
+
+.work-experience .description {
+    text-align: justify;
+    margin: auto;
+}
+
+/* Sunflower Parallax */
+.parallax {
+    background-image: url("../images/sunflowers.jpg");
+    min-height: 200px;
+    /* parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.65;
+}
+
+.parallax p {
+    font-weight: lighter;
+    color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* "View all Projects" link */
+#projects .projects-link {
+    text-align: right;
+}
+
+#projects a {
+    color: grey;
+    text-decoration-style: solid;
+}
+
+#projects a:hover {
+    color: darkgray;
+}
+
+/* PROJECT CARDS */
+
+.flip-card {
+    background-color: transparent;
+    width: 270px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+/* Position front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Horizontal flip when mouse moved over flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    padding: 20px;
+}
+
+
+/* Style the front side  */
+.flip-card-front {
+    background-color: #455e77;
+    color: white;
+}
+
+
+/* Style the back side */
+.flip-card-back {
+    background-color: #708090;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card ul {
+    text-align: left;
+}
+
+/* Projects icons */
+.flip-card i {
+    font-size: 30px;
+    color: #f4f4f4;
+}
+
 /* Contact icons */
 #contact i {
     font-size: 30px;
@@ -162,4 +277,53 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* MEDIA QUERIES */
+
+/* Small Screens */
+@media (max-width: 630px) {
+    .showcase::after {
+        height: 50vh;
+    }
+    .showcase .arrow {
+        display: none;
+    }
+    .content {
+        top: 5%;
+        margin-top: 5px;
+    }
+    .content .logo {
+        height: 140px;
+        width: 140px;
+    }
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Landscape */
+@media (max-height: 500px) {
+    .content .title,
+    .content .text {
+        display: none;
+    }
+    .content {
+        top: 0;
+    }
+}
+
+
+/* Making images responsive */
+#about img {
+    max-width: 90%;
+    display: inline-block;
+    height: auto;
+}
+
+#education img {
+    max-width: 85%;
+    display: inline-block;
+    height: auto;
 }
