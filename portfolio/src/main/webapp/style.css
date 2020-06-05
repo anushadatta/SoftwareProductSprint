@@ -1,8 +1,52 @@
+/* Overriding default styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: rgba(0, 0, 0, 0.9);
     margin: 0;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Helper styles */
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.bg-light {
+    background: #f4f4f4;
+    color: #333;
+}
+
+.bg-dark {
+    background: #333;
+    color: #f4f4f4;
 }
 
 /* Full screen landing page */
@@ -50,39 +94,65 @@ body {
     margin-top: 1rem;
 }
 
-/* Helper styles */
-.container {
-    max-width: 960px;
-    margin: auto;
+.showcase .arrow {
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    left: 50%;
+    transition: all 1000ms;
+}
+
+/* Main Navigation Bar */
+.sticky-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    padding: 4rem 1rem;
+    background-color: #333;
 }
 
-.grid-3 {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+.sticky-navbar li {
+    float: left;
 }
 
-.grid-2 {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.center {
+.sticky-navbar li a {
+    display: block;
+    color: white;
     text-align: center;
-    margin: auto;
+    padding: 20px 22px;
+    text-decoration: none;
 }
 
-.bg-light {
-    background: #f4f4f4;
+.sticky-navbar li a:hover {
+    background-color: #111;
+}
+
+div.sticky-navbar {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.navbar-logo {
+    height: 28px;
+    width: 28px;
+    float: right;
+    margin: 15px;
+}
+
+/* Horizontal Rule */
+hr {
+    width: 70%;
+    text-align-last: center;
+    border: 1.5px solid #c0c0c0;
+}
+
+/* Contact icons */
+#contact i {
+    font-size: 30px;
+    margin: 15px;
     color: #333;
-}
-
-.bg-dark {
-    background: #333;
-    color: #f4f4f4;
 }
 
 /* Website Footer */

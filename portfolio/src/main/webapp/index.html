@@ -8,12 +8,16 @@
     <link rel="icon" href="/images/AD.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+
+    <!-- Font Awesome icons CDN -->
+    <script src="https://use.fontawesome.com/4e51920be5.js"></script>
   </head>
 
   <body>
     <!-- Landing page -->
-    <header class="showcase">
+    <header id="home" class="showcase">
         <div class="content">
+
             <img src="images/AD.png" class="logo" alt="AD">
             <h1 class="title">
                 Anusha Datta
@@ -21,22 +25,112 @@
             <p class="text">
                 CODER. CREATOR. ARTIST.
             </p>
+
         </div>
+
+        <!-- Scroll arrow -->
+        <a href="#navbar"> <img src="images/icons/arrow.png" class="arrow" alt="scroll"> </a>
     </header>
 
+    <!-- Navigation Bar -->
+    <div id="navbar" class="sticky-navbar">
+        <ul>
+            <li>
+                <a href="#home">HOME</a>
+            </li>
+            <li>
+                <a href="#about">ABOUT</a>
+            </li>
+            <li>
+                <a href="#education">EDUCATION</a>
+            </li>
+            <li>
+                <a href="#home">WORK EXPERIENCE</a>
+            </li>
+            <li>
+                <a href="#home">PROJECTS</a>
+            </li>
+            <li>
+                <a href="#home">BLOG</a>
+            </li>
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li>
+
+            <img src="images/AD.png" class="navbar-logo">
+        </ul>
+    </div>
+
     <!-- About -->
-    <section class="bg-light">
-        <div class="container grid-2">     
-            <div class="center">
-                <img src="images/avatar.jpg" height="300px">
-            </div>
+    <section id="about" class="bg-light">
+        <div class="container">
             
-            <div>
-                <h3>Hi there, welcome to my page!</h3>
-                <p> I'm Anusha! I am currently an undergraduate student at Nanyang Technological University, Singapore, majoring in Computer Science and minoring in Business.
-                    <br>
-                    <br> I believe creativity is the key to creating anything visionary and futuristic. Being a practitioner of my art, I am passionate about developing solutions for real world problems using data, mathematics and computing. </p>
-            </div>        
+            <h1>About</h1>
+            <br>
+            
+            <div class="grid-2">
+                <div class="center">
+                    <img src="images/avatar.jpg" height="300px">
+                </div>
+
+                <div>
+                    <h3>Hi there, welcome to my page!</h3>
+                    <p> I'm Anusha. I am currently an undergraduate student at Nanyang Technological University, Singapore, majoring in Computer Science and minoring in Business.
+                        <br>
+                        <br> I believe creativity is the key to creating anything visionary and futuristic. Being a practitioner of my art, I am passionate about developing solutions for real world problems using data, mathematics and computing.</p>
+                </div>
+            </div>
+        
+        </div>
+
+        <hr class="center">
+
+    </section>
+
+    <!-- Education -->
+    <section class="bg-light" id="education">
+        <div class="container">
+            
+            <h1>EDUCATION</h1>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Nanyang Technological University, Singapore</h3>
+                    <h4 class="title">Bachelor of Eng. : Computer Science (2018 - Present)</h4>
+                    <ul>
+                        <li>4.5/5.0 CGPA (Highest Distinction)</li>
+                        <li>Accelerated Bachelor’s Program</li>
+                        <li>Vice President, NTU Open Source Society AY20/21</li>
+                        <li>Vice President, IEEE NTU Student Branch AY19/20</li>
+                    </ul>
+                </div>
+
+                <div class="center">
+                    <img src="images/NTUlogo.png" width="300px">
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="center">
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-light">
+        <div class="container center">
+
+            <h2>Get in Touch</h2>
+            <p>If you want to catch up, just drop me a line!</p>
+
+            <a href="mailto:anushadatta@gmail.com"><i class="fa fa-envelope"></i></a>
+
+            <a href="https://www.linkedin.com/in/anusha-datta/" target="_blank"><i class="fa fa-linkedin"></i></a>
+
+            <a href="https://github.com/anushadatta" target="_blank"><i class="fa fa-github"></i></a>
+
+            <a href="https://medium.com/@anushadatta" target="_blank"><i class="fa fa-medium"></i></a>
+
         </div>
     </section>
 
