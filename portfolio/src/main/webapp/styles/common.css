@@ -44,7 +44,6 @@ body {
     color: #f4f4f4;
 }
 
-
 /* Horizontal Rule */
 hr {
     width: 70%;
@@ -52,14 +51,12 @@ hr {
     border: 1.5px solid #c0c0c0;
 }
 
-
 /* Contact icons */
 #contact i {
     font-size: 30px;
     margin: 15px;
     color: #333;
 }
-
 
 /* Website Footer */
 footer {

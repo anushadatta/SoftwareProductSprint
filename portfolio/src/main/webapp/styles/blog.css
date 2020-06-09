@@ -3,7 +3,6 @@ body {
     background: #f4f4f4;
 }
 
-
 /* Blog Header */
 .showcase::after {
     content: '';
@@ -17,7 +16,6 @@ body {
     transition: all 1000ms;
     position: relative;
 }
-
 
 /* Blog Header content */
 .content {

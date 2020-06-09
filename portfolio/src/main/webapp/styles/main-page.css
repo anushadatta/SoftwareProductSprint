@@ -7,7 +7,6 @@ body {
     background: rgba(0, 0, 0, 0.9);
 }
 
-
 /* Full screen landing page */
 .showcase::after {
     content: '';
@@ -22,7 +21,6 @@ body {
     -webkit-filter: blur(6px);
     transition: all 1000ms;
 }
-
 
 /* Landing page content */
 .content {
@@ -63,7 +61,6 @@ body {
     transition: all 1000ms;
 }
 
-
 /* Main Navigation Bar */
 .sticky-navbar ul {
     list-style-type: none;
@@ -102,7 +99,6 @@ div.sticky-navbar {
     margin: 15px;
 }
 
-
 /* Work Experience */
 .work-experience h4 {
     margin: 2px;
@@ -117,7 +113,6 @@ div.sticky-navbar {
     text-align: justify;
     margin: auto;
 }
-
 
 /* Sunflower Parallax */
 .parallax {
@@ -143,7 +138,6 @@ div.sticky-navbar {
     z-index: 1;
 }
 
-
 /* "View all Projects" link */
 #projects .projects-link {
     text-align: right;
@@ -158,9 +152,7 @@ div.sticky-navbar {
     color: darkgray;
 }
 
-
 /* PROJECT CARDS */
-
 .flip-card {
     background-color: transparent;
     width: 270px;
@@ -219,9 +211,7 @@ div.sticky-navbar {
     color: #f4f4f4;
 }
 
-
 /* BLOG POSTS */
-
 .blog-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
     max-width: 700px;
@@ -253,9 +243,7 @@ div.sticky-navbar {
     color: darkgray;
 }
 
-
 /* Media Queries */
-
 /* Small Screens */
 @media (max-width: 650px) {
     .showcase::after {
