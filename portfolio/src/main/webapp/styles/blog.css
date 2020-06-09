@@ -1,0 +1,43 @@
+/* Overriding default styles */
+body {
+    background: #f4f4f4;
+}
+
+/* Blog Header */
+.showcase::after {
+    content: '';
+    height: 300px;
+    width: 100%;
+    background-image: url("../images/palm-trees.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: block;
+    transition: all 1000ms;
+    position: relative;
+}
+
+/* Blog Header content */
+.content {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-top: 70px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+
+.content .logo {
+    height: 50px;
+    width: 50px;
+}
+
+.content .title {
+    font-size: 5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    margin: 0px;
+}
