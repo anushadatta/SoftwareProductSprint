@@ -1,0 +1,302 @@
+/* Overriding default styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Full screen landing page */
+.showcase::after {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/sunflowers.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    transition: all 1000ms;
+}
+
+/* Landing page content */
+.content {
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+
+.content .logo {
+    height: 180px;
+    width: 180px;
+}
+
+.content .title {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+    font-weight: normal;
+}
+
+.content .text {
+    line-height: 0.1;
+    margin-top: 1rem;
+}
+
+.showcase .arrow {
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    left: 50%;
+    transition: all 1000ms;
+}
+
+/* Main Navigation Bar */
+.sticky-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.sticky-navbar li {
+    float: left;
+}
+
+.sticky-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 22px;
+    text-decoration: none;
+}
+
+.sticky-navbar li a:hover {
+    background-color: #111;
+}
+
+div.sticky-navbar {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.navbar-logo {
+    height: 28px;
+    width: 28px;
+    float: right;
+    margin: 15px;
+}
+
+/* Work Experience */
+.work-experience h4 {
+    margin: 2px;
+}
+
+.work-experience .date {
+    color: #676767;
+    margin-top: 5px;
+}
+
+.work-experience .description {
+    text-align: justify;
+    margin: auto;
+}
+
+/* Sunflower Parallax */
+.parallax {
+    background-image: url("../images/sunflowers.jpg");
+    min-height: 200px;
+    /* parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.65;
+}
+
+.parallax p {
+    font-weight: lighter;
+    color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* "View all Projects" link */
+#projects .projects-link {
+    text-align: right;
+}
+
+#projects a {
+    color: grey;
+    text-decoration-style: solid;
+}
+
+#projects a:hover {
+    color: darkgray;
+}
+
+/* PROJECT CARDS */
+.flip-card {
+    background-color: transparent;
+    width: 270px;
+    height: 250px;
+    perspective: 1000px;
+    margin: auto;
+}
+
+/* Position front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Horizontal flip when mouse moved over flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    padding: 20px;
+}
+
+/* Style the front side  */
+.flip-card-front {
+    background-color: #455e77;
+    color: white;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: #708090;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card ul {
+    text-align: left;
+}
+
+/* Projects icons */
+.flip-card i {
+    font-size: 30px;
+    color: #f4f4f4;
+}
+
+/* BLOG POSTS */
+.blog-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 12px;
+}
+
+.blog-card h2 {
+    margin-bottom: 0px;
+}
+
+.blog-card .date {
+    color: grey;
+    margin-top: 6px;
+}
+
+/* "View all posts" link */
+#blog .blog-link {
+    text-align: right;
+}
+
+#blog a {
+    color: grey;
+    text-decoration-style: solid;
+}
+
+#blog a:hover {
+    color: darkgray;
+}
+
+/* Media Queries */
+/* Small Screens */
+@media (max-width: 650px) {
+    .showcase::after {
+        height: 50vh;
+    }
+    .showcase .arrow {
+        display: none;
+    }
+    .content {
+        top: 5%;
+        margin-top: 5px;
+    }
+    .content .logo {
+        height: 140px;
+        width: 140px;
+    }
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Landscape */
+@media (max-height: 500px) {
+    .content .title,
+    .content .text {
+        display: none;
+    }
+    .content {
+        top: 0;
+    }
+}
+
+/* Making images responsive - About, Education, Blog */
+#about img {
+    max-width: 90%;
+    display: inline-block;
+    height: auto;
+}
+
+#education img {
+    max-width: 85%;
+    display: inline-block;
+    height: auto;
+}
+
+.blogimg {
+    max-width: 400px;
+}
+
+.blogimg img {
+    max-width: 50%;
+    max-height: 50%;
+    display: inline-block;
+    height: auto;
+}

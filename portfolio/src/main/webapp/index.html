@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <title>Anusha Datta</title>
     
     <!-- Favicon, CSS & JS -->
     <link rel="icon" href="/images/AD.png" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/main-page.css">
     <script src="script.js"></script>
 
     <!-- Font Awesome icons CDN -->
@@ -45,13 +47,13 @@
                 <a href="#education">EDUCATION</a>
             </li>
             <li>
-                <a href="#home">WORK EXPERIENCE</a>
+                <a href="#work-experience">WORK EXPERIENCE</a>
             </li>
             <li>
-                <a href="#home">PROJECTS</a>
+                <a href="#projects">PROJECTS</a>
             </li>
             <li>
-                <a href="#home">BLOG</a>
+                <a href="#blog">BLOG</a>
             </li>
             <li>
                 <a href="#contact">CONTACT</a>
@@ -66,11 +68,10 @@
         <div class="container">
             
             <h1>About</h1>
-            <br>
             
             <div class="grid-2">
                 <div class="center">
-                    <img src="images/avatar.jpg" height="300px">
+                    <img src="images/avatar.jpg" alt="Profile Picture">
                 </div>
 
                 <div>
@@ -88,7 +89,7 @@
     </section>
 
     <!-- Education -->
-    <section class="bg-light" id="education">
+    <section id="education" class="bg-light">
         <div class="container">
             
             <h1>EDUCATION</h1>
@@ -106,7 +107,7 @@
                 </div>
 
                 <div class="center">
-                    <img src="images/NTUlogo.png" width="300px">
+                    <img src="images/NTUlogo.png" alt="NTU logo">
                 </div>
             </div>
 
@@ -114,6 +115,169 @@
 
         <hr class="center">
 
+    </section>
+
+    <!-- Work Experience -->
+    <section id="work-experience" class="work-experience bg-light">
+        <div class="container">
+
+            <h1>WORK EXPERIENCE</h1>
+
+            <div class="grid-3 center">
+                
+                <!-- Work experience 1 -->
+                <div>
+                    <h3>VEBITS AI</h3>
+                    <h4>Computer Vision & Deep Learning Analyst</h4>
+                    <p class="date">Jun 2019 - Aug 2019</p>
+                    <p>Driver Behaviour Detection</p>
+                    <ul class="description">
+                        <li>Enhanced a model that uses computer vision to identify a driver using the phone in real time.</li>
+                        <li>Refined TensorFlow's Object Detection API, & pretrained architectures like Faster RCNN and SSD to train the model, with high accuracy of 90%.</li>
+                        <li>Actively used OpenCV extensively for data visualization and model evaluation.</li>
+                    </ul>
+                </div>
+
+                <!-- Work experience 2 -->
+                <div>
+                    <h3>URECA RESEARCH - NTU</h3>
+                    <h4>Sentiment analysis & NLP Researcher</h4>
+                    <p class="date">Aug 2019 - Present</p>
+                    <p>Financial Events Analysis</p>
+                    <ul class="description">
+                        <li>Invited to prestigious President’s Undergraduate Research Program offered to top 10% of cohort.</li>
+                        <li>Developed a new deep learning model for stock price prediction, using Sentiment Analysis & Natural Language Processing with high accuracy of 85%.</li>
+                    </ul>
+                </div>
+
+                <!-- Work experience 2 -->
+                <div>
+                    <h3>VANTAGE WEBTECH</h3>
+                    <h4>Android application Developer</h4>
+                    <p class="date">Jun 2017 - Aug 2017</p>
+                    <p>SriMa International School of Yoga App</p>
+                    <ul class="description">
+                        <li>Led the development of a native Android application that allows users to get to know more about the Yoga school, available courses, trainers, contact information etc.</li>
+                        <li>Developed in the Java integrated environment, NetBeans. Also responsible for creating basic code framework & flow.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sunflower Parallax -->
+    <div class="parallax">
+        <p class="center">A knock on creativity's door.</p>
+    </div>
+
+    <!-- Projects -->
+    <section id="projects" class="bg-light">
+
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="grid-2">
+                <h1>MY PROJECTS</h1>
+                <h5 class="projects-link">
+                    <a href="https://github.com/anushadatta" target="_blank">View all projects</a>
+                </h5>
+            </div>
+
+            <div class="grid-3">
+
+                <!-- Project 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa fa-compass"></i>
+                            <h1>CrafTrip</h1>
+                            <p>Travel application with currency exchange rates, flight prices & weather for destinations.</p>
+                        </div>
+
+                        <div class="flip-card-back">
+                            <ul>
+                                <li>Native iOS and Android application built in Flutter.</li>
+                                <li>Integrated multiple REST APIs to collect flight, currency and weather data.</li>
+                                <li>Set up database hosting on Cloud Firestore.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa fa-calculator"></i>
+                            <h1>PizzaRush</h1>
+                            <p>Mathematics learning re-modeled in a Pizzeria game setting.</p>
+                        </div>
+
+                        <div class="flip-card-back">
+                            <ul>
+                                <li>Students can answer questions, challenge other users, and view personal performance.</li>
+                                <li>Teachers can upload questions and view class performance analytics.</li>
+                                <li>Account authentication handled via FirebaseAuth.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa fa-hotel"></i>
+                            <h1>Airbnb Seattle</h1>
+                            <p>Understanding the Airbnb rental landscape in Seattle using data science.</p>
+                        </div>
+
+                        <div class="flip-card-back">
+                            <ul>
+                                <li>Predicting important features for listing price determination.</li>
+                                <li>Sentiment analysis on listing summary to advise hosts on best advertising.</li>
+                                <li>Modelling a multi-variate listing price predictor.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr class="center">
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="bg-light">
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="grid-2">
+                <h1>BLOG</h1>
+                <h5 class="blog-link">
+                    <a href="blog.html" target="_blank">View all posts</a>
+                </h5>
+            </div>
+
+            <!-- Blog post 1 -->
+            <div class="blog-card">
+                <h2>Netflix - System Architecture</h2>
+                <h5 class="date">May 13, 2020</h5>
+                <div class="blogimg center"><img src="images/netflix.png"></div>
+                <p>A little dive into what goes on behind the scenes every time you decide to Netflix & chill!</p>
+            </div>
+
+            <!-- Blog post 2 -->
+            <div class="blog-card">
+                <h2>Computer Science vs. Art</h2>
+                <h5 class="date">July 16, 2019</h5>
+                <div class="blogimg center"><img src="images/art.png"></div>
+                <p>Do they have more inherrent similarities than we might think?</p>
+            </div>
+
+        </div>
+
+        <hr class="center">
     </section>
 
     <!-- Contact -->
