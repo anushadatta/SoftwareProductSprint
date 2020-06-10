@@ -1,52 +1,10 @@
 /* Overriding default styles */
-* {
-    box-sizing: border-box;
-}
-
 html {
     scroll-behavior: smooth;
 }
 
 body {
     background: rgba(0, 0, 0, 0.9);
-    margin: 0;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Helper styles */
-.container {
-    max-width: 960px;
-    margin: auto;
-    overflow: hidden;
-    padding: 4rem 1rem;
-}
-
-.grid-3 {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-2 {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.center {
-    text-align: center;
-    margin: auto;
-}
-
-.bg-light {
-    background: #f4f4f4;
-    color: #333;
-}
-
-.bg-dark {
-    background: #333;
-    color: #f4f4f4;
 }
 
 /* Full screen landing page */
@@ -86,7 +44,7 @@ body {
 .content .title {
     font-size: 2.2rem;
     margin-top: 1rem;
-    font-weight: normal; 
+    font-weight: normal;
 }
 
 .content .text {
@@ -141,15 +99,7 @@ div.sticky-navbar {
     margin: 15px;
 }
 
-/* Horizontal Rule */
-hr {
-    width: 70%;
-    text-align-last: center;
-    border: 1.5px solid #c0c0c0;
-}
-
 /* Work Experience */
-
 .work-experience h4 {
     margin: 2px;
 }
@@ -203,12 +153,12 @@ hr {
 }
 
 /* PROJECT CARDS */
-
 .flip-card {
     background-color: transparent;
     width: 270px;
     height: 250px;
     perspective: 1000px;
+    margin: auto;
 }
 
 /* Position front and back side */
@@ -238,13 +188,11 @@ hr {
     padding: 20px;
 }
 
-
 /* Style the front side  */
 .flip-card-front {
     background-color: #455e77;
     color: white;
 }
-
 
 /* Style the back side */
 .flip-card-back {
@@ -263,26 +211,41 @@ hr {
     color: #f4f4f4;
 }
 
-/* Contact icons */
-#contact i {
-    font-size: 30px;
-    margin: 15px;
-    color: #333;
+/* BLOG POSTS */
+.blog-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 12px;
 }
 
-/* Website Footer */
-footer {
-    padding: 2.2rem;
+.blog-card h2 {
+    margin-bottom: 0px;
 }
 
-footer p {
-    margin: 0;
+.blog-card .date {
+    color: grey;
+    margin-top: 6px;
 }
 
-/* MEDIA QUERIES */
+/* "View all posts" link */
+#blog .blog-link {
+    text-align: right;
+}
 
+#blog a {
+    color: grey;
+    text-decoration-style: solid;
+}
+
+#blog a:hover {
+    color: darkgray;
+}
+
+/* Media Queries */
 /* Small Screens */
-@media (max-width: 630px) {
+@media (max-width: 650px) {
     .showcase::after {
         height: 50vh;
     }
@@ -314,8 +277,7 @@ footer p {
     }
 }
 
-
-/* Making images responsive */
+/* Making images responsive - About, Education, Blog */
 #about img {
     max-width: 90%;
     display: inline-block;
@@ -324,6 +286,17 @@ footer p {
 
 #education img {
     max-width: 85%;
+    display: inline-block;
+    height: auto;
+}
+
+.blogimg {
+    max-width: 400px;
+}
+
+.blogimg img {
+    max-width: 50%;
+    max-height: 50%;
     display: inline-block;
     height: auto;
 }
