@@ -26,3 +26,20 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/**
+ * Fetches comments from the servers and adds them to the DOM.
+ */
+function getBlogComments() {
+  fetch('/blog-comments').then(response => response.json()).then((comment) => {
+    // comment is an object, not a string, so we have to
+    // reference its fields to create HTML content
+
+    const commentContent = document.getElementById('comment-container');
+    const postDate = document.getElementById('comment-date-container');
+
+    commentContent.innerHTML = comment.comment;
+    postDate.innerHTML = comment.postDate;
+
+  });
+}
