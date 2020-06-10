@@ -14,7 +14,7 @@
 
 package com.google.sps.servlets;
 
-import com.google.sps.data.ServerStats;
+import com.google.sps.data.BlogComments;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.Date;
@@ -33,7 +33,7 @@ public final class BlogCommentsServlet extends HttpServlet {
     String comment = "That's a wonderful blog!";
 
     // Convert the comments data to JSON
-    ServerStats commentsData = new ServerStats(postDate, comment);
+    BlogComments commentsData = new BlogComments(postDate, comment);
     String json = convertToJsonUsingGson(commentsData);
 
     // Send the JSON as the response
@@ -42,10 +42,10 @@ public final class BlogCommentsServlet extends HttpServlet {
   }
 
   /**
-   * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
+   * Converts a BlogComments instance into a JSON string using the Gson library. Note: We first added
    * the Gson library dependency to pom.xml.
    */
-  private String convertToJsonUsingGson(BlogCommentsServlet commentsData) {
+  private String convertToJsonUsingGson(BlogComments commentsData) {
     Gson gson = new Gson();
     String json = gson.toJson(commentsData);
     return json;

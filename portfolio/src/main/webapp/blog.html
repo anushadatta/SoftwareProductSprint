@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/4e51920be5.js"></script>
 </head>
 
-<body>
+<body onload="getBlogComments()">
 
     <!-- Heading -->
     <header id="home" class="showcase">
@@ -34,6 +34,17 @@
         <div class="container center">
             <h1>COMING SOON</h1>
             <p>Stay tuned for some exciting content!</p>
+        </div>
+
+        <hr class="center">
+    </section>
+
+    <!-- Comments on Blog page -->
+    <section class="bg-light">
+        <div class="container center">
+            <h1>Share your thoughts</h1>
+            <div id="comment-container"></div>
+            <div id="comment-date-container"></div>
         </div>
 
         <hr class="center">
