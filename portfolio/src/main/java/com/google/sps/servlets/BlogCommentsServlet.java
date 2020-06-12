@@ -27,14 +27,11 @@ import java.util.ArrayList;
 @WebServlet("/comments")
 public final class BlogCommentsServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Comments data
     ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
 
-    commentsList.add(new BlogComment(new Date(), "This is a wonderful blog!"));
-    commentsList.add(new BlogComment(new Date(), "Great reads"));
-    commentsList.add(new BlogComment(new Date(), "Honestly, I'm just not digging it"));
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     // Convert the comments data to JSON
     String json = convertToJsonUsingGson(commentsList);
@@ -42,6 +39,27 @@ public final class BlogCommentsServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json");
     response.getWriter().println(json);
+  }
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    // Get the input from the form.
+    Date date = new Date();
+    String text = request.getParameter("comment-text");
+
+    // Upload comment 
+    uploadComment(date, text);
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/blog.html");
+  }
+
+  private void uploadComment(Date date, String text) {
+
+      BlogComment c = new BlogComment(date, text);
+      commentsList.add(c);
+
+      return; 
   }
 
   /**
@@ -52,7 +70,7 @@ public final class BlogCommentsServlet extends HttpServlet {
     
     Gson gson = new Gson();
     String json = gson.toJson(comments);
+    
     return json;
-
   }
 }

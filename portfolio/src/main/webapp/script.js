@@ -40,17 +40,25 @@ function getBlogComments() {
 
             console.log(commentsList);
 
-            for (let i = 0; i < commentsList.length; i++) {
+            if(commentsList.length == 0) {
+                var noComments = document.createElement("p");
+                noComments.innerText = "Be the first to comment!";
 
-                var comment = document.createElement("div");
-                comment.classList.add("comment-card");
-                comment.innerHTML = createCommentElement(commentsList[i]);
-
-                commentsDiv.appendChild(comment);
+                commentsDiv.appendChild(noComments);
             }
+
+            else {
+                for (let i = 0; i < commentsList.length; i++) {
+
+                    var comment = document.createElement("div");
+                    comment.classList.add("comment-card");
+                    comment.innerHTML = createCommentElement(commentsList[i]);
+                    
+                    commentsDiv.appendChild(comment);
+                }
+            }    
         })
         .catch(error => console.log(error));
-
 }
 
 function createCommentElement(input) {

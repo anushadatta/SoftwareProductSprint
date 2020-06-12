@@ -43,6 +43,11 @@ body {
 }
 
 /* Comment */
+#comments p {
+    color: gray;
+    font-weight: lighter;
+    margin: 20px;
+}
 
 .comment-card {
     background-color: gainsboro;
@@ -63,7 +68,6 @@ body {
     margin: 5px;
     text-align: right;
 }
-
 
 /* Add Comment form */
 .comments-form {
