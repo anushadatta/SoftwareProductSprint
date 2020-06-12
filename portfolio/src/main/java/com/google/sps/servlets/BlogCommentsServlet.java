@@ -14,7 +14,7 @@
 
 package com.google.sps.servlets;
 
-import com.google.sps.data.BlogComments;
+import com.google.sps.data.BlogComment;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.Date;
@@ -22,19 +22,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
-@WebServlet("/blog-comments")
+@WebServlet("/comments")
 public final class BlogCommentsServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Comments data
-    Date postDate = new Date();
-    String comment = "That's a wonderful blog!";
+    ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
+
+    commentsList.add(new BlogComment(new Date(), "This is a wonderful blog!"));
+    commentsList.add(new BlogComment(new Date(), "Great reads"));
+    commentsList.add(new BlogComment(new Date(), "Honestly, I'm just not digging it"));
 
     // Convert the comments data to JSON
-    BlogComments commentsData = new BlogComments(postDate, comment);
-    String json = convertToJsonUsingGson(commentsData);
+    String json = convertToJsonUsingGson(commentsList);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
@@ -45,9 +48,11 @@ public final class BlogCommentsServlet extends HttpServlet {
    * Converts a BlogComments instance into a JSON string using the Gson library. Note: We first added
    * the Gson library dependency to pom.xml.
    */
-  private String convertToJsonUsingGson(BlogComments commentsData) {
+  private String convertToJsonUsingGson(ArrayList<BlogComment> comments) {
+    
     Gson gson = new Gson();
-    String json = gson.toJson(commentsData);
+    String json = gson.toJson(comments);
     return json;
+
   }
 }

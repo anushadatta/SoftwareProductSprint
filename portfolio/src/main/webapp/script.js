@@ -31,18 +31,36 @@ function addRandomGreeting() {
  * Fetches comments from the servers and adds them to the DOM.
  */
 function getBlogComments() {
-  
-  fetch('/blog-comments')
-    .then(response => response.json())
-    .then((comment) => {
-    const commentContent = document.getElementById("comment-container");
-    const postDate = document.getElementById("comment-date-container");
 
-    console.log("Comment " + comment.comment);
-    console.log("Date " + comment.postDate);
+    const commentsDiv = document.getElementById("comments");
 
-    commentContent.innerHTML = comment.comment;
-    postDate.innerHTML = comment.postDate; 
-    }) 
-    .catch(error => console.log(error));
+    fetch('/comments')
+        .then(response => response.json())
+        .then(commentsList => {
+
+            console.log(commentsList);
+
+            for (let i = 0; i < commentsList.length; i++) {
+
+                var comment = document.createElement("div");
+                comment.classList.add("comment-card");
+                comment.innerHTML = createCommentElement(commentsList[i]);
+
+                commentsDiv.appendChild(comment);
+            }
+        })
+        .catch(error => console.log(error));
+
+}
+
+function createCommentElement(input) {
+
+    console.log(input.text + input.postDate);
+
+    var comment = `
+    <div class="text">${input.text}</div>
+    <div class="date">${input.postDate}</div>
+    `;
+
+    return comment;
 }

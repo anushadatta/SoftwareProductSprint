@@ -42,12 +42,23 @@
     <!-- Comments on Blog page -->
     <section class="bg-light">
         <div class="container center">
+
+            <!-- Past Comments -->
             <h1>Share your thoughts</h1>
-            <div id="comment-container"></div>
-            <div id="comment-date-container"></div>
+            <div id="comments"></div>
+
+            <!-- Add comments form -->
+            <form action="/action_page.php" class="comments-form">
+
+                <p>What content would you like to see? Leave a comment below!</p>
+                <textarea placeholder="Type something here.."></textarea>
+
+                <input type="submit" value="Add comment">
+            </form>
         </div>
 
         <hr class="center">
+
     </section>
 
     <!-- Contact -->
