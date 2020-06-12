@@ -1,5 +1,6 @@
 {
-    "posts": [{
+    "posts": [
+        {
             "title": "Netflix - System Architecture",
             "date": "May 13, 2020",
             "summary": "A little dive into what goes on behind the scenes every time you decide to Netflix & chill!",
@@ -15,7 +16,8 @@
         }
     ],
 
-    "comments": [{
+    "comments": [
+        {
             "text": "This is a wonderful blog!",
             "postDate": "10 May, 2020"
         },
@@ -28,6 +30,4 @@
             "postDate": "4 June, 2020"
         }
     ]
-
-
 }

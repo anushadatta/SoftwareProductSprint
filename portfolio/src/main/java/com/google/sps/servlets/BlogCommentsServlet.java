@@ -40,7 +40,7 @@ public final class BlogCommentsServlet extends HttpServlet {
     String json = convertToJsonUsingGson(commentsList);
 
     // Send the JSON as the response
-    response.setContentType("application/json;");
+    response.setContentType("application/json");
     response.getWriter().println(json);
   }
 
