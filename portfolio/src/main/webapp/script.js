@@ -49,12 +49,7 @@ function getBlogComments() {
 
             else {
                 for (let i = 0; i < commentsList.length; i++) {
-
-                    var comment = document.createElement("div");
-                    comment.classList.add("comment-card");
-                    comment.innerHTML = createCommentElement(commentsList[i]);
-                    
-                    commentsDiv.appendChild(comment);
+                    commentsDiv.appendChild(createCommentElement(commentsList[i]));
                 }
             }    
         })
@@ -65,10 +60,14 @@ function createCommentElement(input) {
 
     console.log(input.text + input.postDate);
 
-    var comment = `
+    var commentHTML = `
     <div class="text">${input.text}</div>
     <div class="date">${input.postDate}</div>
     `;
+
+    var comment = document.createElement("div");
+    comment.classList.add("comment-card");
+    comment.innerHTML = commentHTML;
 
     return comment;
 }
