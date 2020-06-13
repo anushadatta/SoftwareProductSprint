@@ -59,9 +59,13 @@ function getBlogComments() {
 function createCommentElement(input) {
 
     console.log(input.text + input.postDate);
+    
+    // To prevent HTML and Script injections 
+    var commentText = input.text;
+    var commentText = commentText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     var commentHTML = `
-    <div class="text">${input.text}</div>
+    <div class="text">${commentText}</div>
     <div class="date">${input.postDate}</div>
     `;
 
