@@ -34,7 +34,7 @@ function getBlogComments() {
 
     const commentsDiv = document.getElementById("comments");
 
-    fetch('/comments')
+    fetch('/load-comments')
         .then(response => response.json())
         .then(commentsList => {
 

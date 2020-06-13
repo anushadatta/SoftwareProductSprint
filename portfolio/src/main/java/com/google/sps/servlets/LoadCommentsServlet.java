@@ -14,6 +14,12 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.sps.data.BlogComment;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -23,43 +29,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 
-@WebServlet("/comments")
-public final class BlogCommentsServlet extends HttpServlet {
-
-    // Comments data
-    ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
+// Servlet to load and list all previous comments
+@WebServlet("/load-comments")
+public final class LoadCommentsServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    // Get BlogComment entities from Datastore
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    
+    Query query = new Query("BlogComment").addSort("postDate", SortDirection.DESCENDING);
+    PreparedQuery results = datastore.prepare(query);
+
+    // Create ArrayList<BlogComment> from entities
+    ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
+
+    for (Entity entity : results.asIterable()) {
+
+      Date postDate = (Date) entity.getProperty("postDate");
+      String text = (String) entity.getProperty("text");
+
+      BlogComment c = new BlogComment(postDate, text);
+      commentsList.add(c);
+    }
+    
     // Convert the comments data to JSON
     String json = convertToJsonUsingGson(commentsList);
 
     // Send the JSON as the response
     response.setContentType("application/json");
     response.getWriter().println(json);
-  }
-
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    // Get the input from the form.
-    Date date = new Date();
-    String text = request.getParameter("comment-text");
-
-    // Upload comment 
-    uploadComment(date, text);
-
-    // Redirect back to the HTML page.
-    response.sendRedirect("/blog.html");
-  }
-
-  private void uploadComment(Date date, String text) {
-
-      BlogComment c = new BlogComment(date, text);
-      commentsList.add(c);
-
-      return; 
   }
 
   /**
