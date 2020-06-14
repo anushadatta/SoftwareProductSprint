@@ -38,10 +38,17 @@ public final class LoadCommentsServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    // Get comments sorting order 
+    String sortingOrder = request.getParameter("sort");
+
+    if(sortingOrder == null) {
+        sortingOrder = "SortDirection.DESCENDING";
+    }
+
     // Get BlogComment entities from Datastore
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     
-    Query query = new Query("BlogComment").addSort("postDate", SortDirection.DESCENDING);
+    Query query = new Query("BlogComment").addSort("postDate", sortingOrder);
     PreparedQuery results = datastore.prepare(query);
 
     // Create ArrayList<BlogComment> from entities
@@ -62,6 +69,7 @@ public final class LoadCommentsServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json");
     response.getWriter().println(json);
+
   }
 
   /**

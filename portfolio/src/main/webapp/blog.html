@@ -43,8 +43,18 @@
     <section class="bg-light">
         <div class="container center">
 
-            <!-- Past Comments -->
             <h1>Share your thoughts</h1>
+
+            <!-- Sort comments -->
+            <form class="sort-form">
+                <select class="sort" name="sort">
+                    <option value="SortDirection.ASCENDING">Oldest to Newest</option>
+                    <option value="SortDirection.DESCENDING">Newest to Oldest</option>
+                  </select>
+                  <button type="button" class="sort-button" onclick="getBlogComments()">SORT</button>
+            </form>
+
+            <!-- Past Comments -->
             <div id="comments"></div>
 
             <!-- Add comments form -->
