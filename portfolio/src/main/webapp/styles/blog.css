@@ -42,7 +42,38 @@ body {
     margin: 0px;
 }
 
+/* Sorting comments */
+.sort-form {
+    text-align: right;
+}
+
+.sort {
+    color: grey;
+    background-color: #f4f4f4;
+    margin-right: 10px;
+    padding: 8px;
+    font-weight: lighter;
+    font-size: 12px;
+    border-radius: 1vh;
+}
+
+.sort-form .sort-button {
+    background-color: #455e77;
+    color: #f4f4f4;
+    margin-right: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 1vh;
+    border-color: lightslategray;
+}
+
 /* Comment */
+#comments p {
+    color: gray;
+    font-weight: lighter;
+    margin: 20px;
+}
 
 .comment-card {
     background-color: gainsboro;
@@ -63,7 +94,6 @@ body {
     margin: 5px;
     text-align: right;
 }
-
 
 /* Add Comment form */
 .comments-form {

@@ -34,33 +34,44 @@ function getBlogComments() {
 
     const commentsDiv = document.getElementById("comments");
 
-    fetch('/comments')
+    fetch('/load-comments')
         .then(response => response.json())
         .then(commentsList => {
 
             console.log(commentsList);
 
-            for (let i = 0; i < commentsList.length; i++) {
+            if(commentsList.length == 0) {
+                
+                var noComments = document.createElement("p");
+                noComments.innerText = "Be the first to comment!";
 
-                var comment = document.createElement("div");
-                comment.classList.add("comment-card");
-                comment.innerHTML = createCommentElement(commentsList[i]);
+                commentsDiv.appendChild(noComments);
+            } else {
 
-                commentsDiv.appendChild(comment);
-            }
+                for (let i = 0; i < commentsList.length; i++) {
+                    commentsDiv.appendChild(createCommentElement(commentsList[i]));
+                }
+            }    
         })
         .catch(error => console.log(error));
-
 }
 
 function createCommentElement(input) {
 
     console.log(input.text + input.postDate);
+    
+    // To prevent HTML and Script injections 
+    var commentText = input.text;
+    var commentText = commentText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-    var comment = `
-    <div class="text">${input.text}</div>
+    var commentHTML = `
+    <div class="text">${commentText}</div>
     <div class="date">${input.postDate}</div>
     `;
+
+    var comment = document.createElement("div");
+    comment.classList.add("comment-card");
+    comment.innerHTML = commentHTML;
 
     return comment;
 }
