@@ -30,13 +30,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*; 
+import javax.servlet.*; 
+import javax.servlet.http.*; 
 
 // Servlet to load and list all previous comments
 @WebServlet("/load-comments")
 public final class LoadCommentsServlet extends HttpServlet {
 
+  private Gson gson = new Gson(); 
+  private static final String JSON_CONTENT_TYPE = "application/json";
+
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     // Get comments sorting order 
     String sortingOrder = request.getParameter("sort");
@@ -51,7 +57,6 @@ public final class LoadCommentsServlet extends HttpServlet {
     Query query = new Query("BlogComment").addSort("postDate", sortingOrder);
     PreparedQuery results = datastore.prepare(query);
 
-    // Create ArrayList<BlogComment> from entities
     ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
 
     for (Entity entity : results.asIterable()) {
@@ -67,7 +72,7 @@ public final class LoadCommentsServlet extends HttpServlet {
     String json = convertToJsonUsingGson(commentsList);
 
     // Send the JSON as the response
-    response.setContentType("application/json");
+    response.setContentType(JSON_CONTENT_TYPE);
     response.getWriter().println(json);
 
   }
@@ -78,7 +83,6 @@ public final class LoadCommentsServlet extends HttpServlet {
    */
   private String convertToJsonUsingGson(ArrayList<BlogComment> comments) {
     
-    Gson gson = new Gson();
     String json = gson.toJson(comments);
     
     return json;

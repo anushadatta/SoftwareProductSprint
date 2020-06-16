@@ -29,7 +29,7 @@ import java.util.Date;
 public class AddCommentServlet extends HttpServlet {
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get data from form
     Date postDate = new Date();
     String text = request.getParameter("comment-text");

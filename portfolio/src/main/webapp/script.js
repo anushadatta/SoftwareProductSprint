@@ -41,13 +41,13 @@ function getBlogComments() {
             console.log(commentsList);
 
             if(commentsList.length == 0) {
+                
                 var noComments = document.createElement("p");
                 noComments.innerText = "Be the first to comment!";
 
                 commentsDiv.appendChild(noComments);
-            }
+            } else {
 
-            else {
                 for (let i = 0; i < commentsList.length; i++) {
                     commentsDiv.appendChild(createCommentElement(commentsList[i]));
                 }
