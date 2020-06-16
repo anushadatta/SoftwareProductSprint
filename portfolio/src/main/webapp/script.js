@@ -34,20 +34,20 @@ function getBlogComments() {
 
     const commentsDiv = document.getElementById("comments");
 
-    fetch('/comments')
+    fetch('/load-comments')
         .then(response => response.json())
         .then(commentsList => {
 
             console.log(commentsList);
 
             if(commentsList.length == 0) {
+                
                 var noComments = document.createElement("p");
                 noComments.innerText = "Be the first to comment!";
 
                 commentsDiv.appendChild(noComments);
-            }
+            } else {
 
-            else {
                 for (let i = 0; i < commentsList.length; i++) {
                     commentsDiv.appendChild(createCommentElement(commentsList[i]));
                 }
@@ -59,9 +59,13 @@ function getBlogComments() {
 function createCommentElement(input) {
 
     console.log(input.text + input.postDate);
+    
+    // To prevent HTML and Script injections 
+    var commentText = input.text;
+    var commentText = commentText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     var commentHTML = `
-    <div class="text">${input.text}</div>
+    <div class="text">${commentText}</div>
     <div class="date">${input.postDate}</div>
     `;
 
