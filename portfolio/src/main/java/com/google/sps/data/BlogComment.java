@@ -7,10 +7,12 @@ public final class BlogComment {
 
   private final Date postDate;
   private final String text; 
+  private final String imageURL;
 
-  public BlogComment(Date postDate, String text) {
+  public BlogComment(Date postDate, String text, String imageURL) {
     this.postDate = postDate;
     this.text = text;
+    this.imageURL = imageURL;
   }
 
   public Date getPostDate() {
@@ -19,6 +21,10 @@ public final class BlogComment {
 
   public String getCommentText() {
     return text;
+  }
+
+  public String getImageURL() {
+    return imageURL;
   }
 
 }
