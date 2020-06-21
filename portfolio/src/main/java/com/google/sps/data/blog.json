@@ -1,0 +1,33 @@
+{
+    "posts": [
+        {
+            "title": "Netflix - System Architecture",
+            "date": "May 13, 2020",
+            "summary": "A little dive into what goes on behind the scenes every time you decide to Netflix & chill!",
+            "image": "assets/netflix.png",
+            "content": " "
+        },
+        {
+            "title": "Computer Science vs. Art",
+            "date": "July 16, 2019",
+            "summary": "Do they have more inherrent similarities than we might think?",
+            "image": "assets/art.png",
+            "content": " "
+        }
+    ],
+
+    "comments": [
+        {
+            "text": "This is a wonderful blog!",
+            "postDate": "10 May, 2020"
+        },
+        {
+            "text": "Great reads",
+            "postDate": "16 April, 2020"
+        },
+        {
+            "text": "Honestly, I'm not digging it",
+            "postDate": "4 June, 2020"
+        }
+    ]
+}

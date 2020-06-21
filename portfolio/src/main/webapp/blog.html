@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/4e51920be5.js"></script>
 </head>
 
-<body>
+<body onload="getBlogComments()">
 
     <!-- Heading -->
     <header id="home" class="showcase">
@@ -37,6 +37,38 @@
         </div>
 
         <hr class="center">
+    </section>
+
+    <!-- Comments on Blog page -->
+    <section class="bg-light">
+        <div class="container center">
+
+            <h1>Share your thoughts</h1>
+
+            <!-- Sort comments -->
+            <form class="sort-form">
+                <select class="sort" name="sort">
+                    <option value="SortDirection.ASCENDING">Oldest to Newest</option>
+                    <option value="SortDirection.DESCENDING">Newest to Oldest</option>
+                  </select>
+                  <button type="button" class="sort-button" onclick="getBlogComments()">SORT</button>
+            </form>
+
+            <!-- Past Comments -->
+            <div id="comments"></div>
+
+            <!-- Add comments form -->
+            <form action="/add-comment" method="POST" class="comments-form" >
+
+                <p>What content would you like to see? Leave a comment below:</p>
+                <textarea placeholder="Type something here.." name="comment-text"></textarea>
+
+                <input type="submit" value="Add comment">
+            </form>
+        </div>
+
+        <hr class="center">
+
     </section>
 
     <!-- Contact -->

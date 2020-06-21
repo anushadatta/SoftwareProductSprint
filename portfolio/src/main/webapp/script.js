@@ -26,3 +26,52 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/**
+ * Fetches comments from the servers and adds them to the DOM.
+ */
+function getBlogComments() {
+
+    const commentsDiv = document.getElementById("comments");
+
+    fetch('/load-comments')
+        .then(response => response.json())
+        .then(commentsList => {
+
+            console.log(commentsList);
+
+            if(commentsList.length == 0) {
+                
+                var noComments = document.createElement("p");
+                noComments.innerText = "Be the first to comment!";
+
+                commentsDiv.appendChild(noComments);
+            } else {
+
+                for (let i = 0; i < commentsList.length; i++) {
+                    commentsDiv.appendChild(createCommentElement(commentsList[i]));
+                }
+            }    
+        })
+        .catch(error => console.log(error));
+}
+
+function createCommentElement(input) {
+
+    console.log(input.text + input.postDate);
+    
+    // To prevent HTML and Script injections 
+    var commentText = input.text;
+    var commentText = commentText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    var commentHTML = `
+    <div class="text">${commentText}</div>
+    <div class="date">${input.postDate}</div>
+    `;
+
+    var comment = document.createElement("div");
+    comment.classList.add("comment-card");
+    comment.innerHTML = commentHTML;
+
+    return comment;
+}
