@@ -76,8 +76,8 @@ function createCommentElement(input) {
     var commentText = input.text;
     var commentText = commentText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-    if(input.imageURL != null)
-    {   var commentHTML = `
+    if (input.imageURL != null){   
+        var commentHTML = `
         <div class="text">${commentText}</div>
         <div class="date">${input.postDate}</div>
         <img src="${input.imageURL}"></img>

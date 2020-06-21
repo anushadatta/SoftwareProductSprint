@@ -34,6 +34,7 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
+import javax.annotation.Nullable;
 
 // Servlet responsible for creating new tasks.
 @WebServlet("/add-comment")
@@ -62,7 +63,7 @@ public class AddCommentServlet extends HttpServlet {
   }
 
   /** Returns a URL that points to the uploaded file, or null if the user didn't upload a file. */
-  private String getUploadedFileUrl(HttpServletRequest request, String formInputElementName) {
+  @Nullable private String getUploadedFileUrl(HttpServletRequest request, String formInputElementName) {
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
     List<BlobKey> blobKeys = blobs.get("image");
@@ -88,9 +89,18 @@ public class AddCommentServlet extends HttpServlet {
     String url = imagesService.getServingUrl(options);
 
     // GCS's localhost preview is not actually on localhost, so make the URL relative to the current domain.
-    if(url.startsWith("http://localhost:8080/")){
-      url = url.replace("http://localhost:8080/", "/");
+    if (url.startsWith("http://localhost:8080/")) {
+      String relativeURL = formatURL(url);
+      return relativeURL;
     }
+
     return url;
+  }
+
+  private String formatURL(String url) {
+
+      url = url.replace("http://localhost:8080/", "/");
+
+      return url; 
   }
 }
