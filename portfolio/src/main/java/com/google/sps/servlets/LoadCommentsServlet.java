@@ -54,7 +54,7 @@ public final class LoadCommentsServlet extends HttpServlet {
     // Get BlogComment entities from Datastore
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     
-    Query query = new Query("BlogComment").addSort("postDate", sortingOrder);
+    Query query = new Query("BlogComment").addSort("postDate", SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
 
     ArrayList<BlogComment> commentsList = new ArrayList<BlogComment>();
@@ -63,8 +63,9 @@ public final class LoadCommentsServlet extends HttpServlet {
 
       Date postDate = (Date) entity.getProperty("postDate");
       String text = (String) entity.getProperty("text");
+      String imageURL = (String) entity.getProperty("imageURL");
 
-      BlogComment c = new BlogComment(postDate, text);
+      BlogComment c = new BlogComment(postDate, text, imageURL);
       commentsList.add(c);
     }
     
