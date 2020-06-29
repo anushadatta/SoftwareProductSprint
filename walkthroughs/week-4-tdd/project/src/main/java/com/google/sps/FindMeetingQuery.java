@@ -35,20 +35,21 @@ public final class FindMeetingQuery {
             return Arrays.asList(TimeRange.WHOLE_DAY);
         }
 
-        // flag to check mutual exclusivity of attendee list
-        boolean distinctAttendees = true;
+        // flag to check overlap of requested meeting attendee list with attendee list of an event from events collection
+        // if there is no overlap, the event has no effect on the scheduling of requested meeting
+        boolean noOverlapOfAttendees = true;
 
         List<TimeRange> available = Arrays.asList(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TimeRange.END_OF_DAY, true));
 
         for (Event event : events) {
             if (attendeesOverlap(event.getAttendees(), request.getAttendees())) {
                 available = remove(available, event.getWhen());
-                distinctAttendees = false;
+                noOverlapOfAttendees = false;
             }
         }
 
         // mutual exclusivity of attendee list, i.e. no clashing events
-        if (distinctAttendees == true) {
+        if (noOverlapOfAttendees) {
             return Arrays.asList(TimeRange.WHOLE_DAY);
         }
 
@@ -121,8 +122,8 @@ public final class FindMeetingQuery {
         
         if (intersection.isEmpty()) {
             return false;
-        } else {
-            return true;
-        }
+        } 
+
+        return true; 
     }
 }
